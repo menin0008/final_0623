@@ -1,0 +1,202 @@
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+        font-family: 'DungGeunMo';
+        src: url('images/DungGeunMo.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+        * {
+        box-sizing: border-box;
+        }
+
+        body {
+        margin: 0;
+        font-family: 'DungGeunMo', sans-serif;
+        background-color:  #e7e8d8;
+        color: #333;
+        }
+
+        .contact-wrapper {
+        max-width: 1100px;
+        margin: 80px auto;
+        padding: 40px;
+        display: flex;
+        gap: 40px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        }
+
+        .contact-info {
+        flex: 1 1 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        }
+
+        .info-card {
+        background-color: #f1f1f1;
+        border-radius: 16px;
+        padding: 30px 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card.call {
+        background-color: #226b37;
+        color: white;
+        }
+
+        .info-card h3 {
+        margin: 0 0 12px;
+        font-size: 16px;
+        opacity: 0.85;
+        }
+
+        .info-card p {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 0 20px;
+        }
+
+        .info-card button {
+        padding: 10px 18px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        }
+
+        .info-card.email {
+        background-color: #ffffff;
+        color: #333;
+        }
+
+        .info-card.email button {
+        background-color: #e3e3e3;
+        color: #333;
+        }
+
+        .contact-form {
+        flex: 2 1 600px;
+        background-color: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h2 {
+        margin-bottom: 10px;
+        font-size: 28px;
+        }
+
+        .contact-form p {
+        margin-bottom: 30px;
+        color: #666;
+        font-size: 14px;
+        }
+
+        .form-row {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        }
+
+        .form-row input,
+        .form-row textarea {
+        flex: 1;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        font-size: 16px;
+        width: 100%;
+        }
+
+        textarea {
+        min-height: 140px;
+        resize: vertical;
+        }
+
+        .form-button {
+        text-align: right;
+        }
+
+        .form-button button {
+        padding: 14px 30px;
+        background-color: #222;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        }
+
+        .form-button button:hover {
+        background-color: #000;
+        }
+
+        @media (max-width: 768px) {
+        .contact-wrapper {
+            flex-direction: column;
+        }
+
+        .form-button {
+            text-align: center;
+        }
+        }
+    </style>
+    </head>
+    <body>
+
+    <div class="contact-wrapper">
+        <!-- 왼쪽 연락 카드들 -->
+        <div class="contact-info">
+        <div class="info-card call">
+            <h3>Call Me Directly At</h3>
+            <p>010 - 1234 - 5678</p>
+            <button onclick="window.open('tel:01012345678')">Contact Us</button>
+        </div>
+
+        <div class="info-card email">
+            <h3>Chat With HyeMin</h3>
+            <p>hyeminkinstudy@gmail.com</p>
+            <button onclick="window.location.href='mailto:hyeminkinstudy@gmail.com'">Contact Us</button>
+        </div>
+        </div>
+
+        <!-- 오른쪽 폼 -->
+        <div class="contact-form">
+        <h2>Contact Me</h2>
+        <p>Feel free to contact us! Submit your queries here and we will listen.</p>
+
+        <form action="mailto:hyeminkinstudy@gmail.com" method="POST" enctype="text/plain">
+            <div class="form-row">
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="text" name="phone" placeholder="Phone Number" />
+            </div>
+
+            <div class="form-row">
+            <textarea name="message" placeholder="Message Here..." required></textarea>
+            </div>
+
+            <div class="form-button">
+            <button type="submit">Send Message</button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    </body>
+    </html>

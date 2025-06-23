@@ -1,0 +1,215 @@
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
+    <title>HYE MIN WORK SPACE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        html {
+        scroll-behavior: smooth;
+        cursor: none; /* 기본 커서 숨김 */
+        }
+
+        body {
+        margin: 0;
+        background: url('images/background-imac.jpeg') no-repeat center 110px;
+        background-size: 100%;
+        background-color: #e7e8d8;
+        height: 115vh;
+        font-family: 'Doto', sans-serif;
+        position: relative;
+        }
+
+        .title {
+        position: absolute;
+        top: 150px;
+        left: 51%;
+        transform: translateX(-50%);
+        font-family: 'Doto', sans-serif;
+        font-weight: 550;
+        font-size: 60px;
+        color: #184b13;
+        text-transform: uppercase;
+        letter-spacing: -5px;
+        }
+
+        .folder {
+        position: absolute;
+        top: calc(15% + 270px);
+        left: 43%;
+        width: 90px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        opacity: 0;
+        }
+
+        .folder-label {
+        position: absolute;
+        top: calc(24% + 270px);
+        left: 43.8%;
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+        background: rgba(255,255,255,0.6);
+        padding: 2px 6px;
+        border-radius: 4px;
+        opacity: 0;
+        }
+
+        .folder2 {
+        position: absolute;
+        top: calc(15% + 270px);
+        left: 50%;
+        width: 90px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        opacity: 0;
+        }
+
+        .folder2-label {
+        position: absolute;
+        top: calc(24% + 270px);
+        left: 50.9%;
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+        background: rgba(255,255,255,0.6);
+        padding: 2px 6px;
+        border-radius: 4px;
+        opacity: 0;
+        }
+
+        .folder3 {
+        position: absolute;
+        top: calc(15% + 270px);
+        left: 57%;
+        width: 90px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        opacity: 0;
+        }
+
+        .folder3-label {
+        position: absolute;
+        top: calc(24% + 270px);
+        left: 58%;
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+        background: rgba(255,255,255,0.6);
+        padding: 2px 6px;
+        border-radius: 4px;
+        opacity: 0;
+        }
+
+        .fade-in {
+        animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* 사용자 정의 마우스 커서 */
+        .custom-cursor {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-50%, -50%);
+        }
+    </style>
+    </head>
+    <body>
+
+    <!-- 커서 표시 -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <!-- 타이틀 -->
+    <div class="title"> HYE MIN WORK SPACE</div>
+
+    <!-- 폴더 이미지 -->
+    <img src="images/folder-icon.png" class="folder fade-in" id="folder" onclick="goToPage('profile.html')">
+    <div class="folder-label fade-in" id="label">Profile</div>
+
+    <img src="images/folder-icon.png" class="folder2 fade-in" id="folder2" onclick="goToPage('subpage.html')">
+    <div class="folder2-label fade-in" id="label2">My Work</div>
+
+    <img src="images/folder-icon.png" class="folder3 fade-in" id="folder3" onclick="goToPage('zcontact.html')">    
+    <div class="folder3-label fade-in" id="label3">Contact</div>
+
+    <!-- ScrollMagic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+
+    <!-- 스크립트 -->
+    <script>
+    function goToPage(page) {
+        window.location.href = page;
+    }
+
+    // ScrollMagic - 페이드인
+    const controller = new ScrollMagic.Controller();
+    
+    // Initial fade-in for all folders
+    document.getElementById("folder").classList.add("fade-in");
+    document.getElementById("label").classList.add("fade-in");
+    document.getElementById("folder2").classList.add("fade-in");
+    document.getElementById("label2").classList.add("fade-in");
+    document.getElementById("folder3").classList.add("fade-in");
+    document.getElementById("label3").classList.add("fade-in");
+
+    new ScrollMagic.Scene({
+        triggerElement: "#folder",
+        triggerHook: 0.9,
+        reverse: false
+    })
+    .on("enter", function () {
+        document.getElementById("folder").classList.add("fade-in");
+        document.getElementById("label").classList.add("fade-in");
+    })
+    .addTo(controller);
+
+    new ScrollMagic.Scene({
+        triggerElement: "#folder2",
+        triggerHook: 0.9,
+        reverse: false
+    })
+    .on("enter", function () {
+        document.getElementById("folder2").classList.add("fade-in");
+        document.getElementById("label2").classList.add("fade-in");
+    })
+    .addTo(controller);
+
+    new ScrollMagic.Scene({
+        triggerElement: "#folder3",
+        triggerHook: 0.9,
+        reverse: false
+    })
+    .on("enter", function () {
+        document.getElementById("folder3").classList.add("fade-in");
+        document.getElementById("label3").classList.add("fade-in");
+    })
+    .addTo(controller);
+
+    // 마우스 커서
+    const cursor = document.getElementById("cursor");
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.top = e.clientY + "px";
+        cursor.style.left = e.clientX + "px";
+    });
+    </script>
+
+    </body>
+    </html>
